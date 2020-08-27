@@ -1,10 +1,16 @@
 import React from 'react';
 import { Paragraph } from 'grape-ui-react'
+import { useSelector } from 'react-redux';
 
-const App = () => (
-  <Paragraph>
-    <h1>Opa</h1>
-  </Paragraph>
-)
 
+const App = () => {
+
+  const taskList = useSelector(state => state.tasks)
+
+  return (
+    <Paragraph>
+      opa
+    </Paragraph>
+  )
+}
 export default App;

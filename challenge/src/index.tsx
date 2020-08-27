@@ -3,13 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux';
-import tasks from './store/reducers/task'
+import { rootReducer } from './store/index'
 
-const store = createStore(combineReducers(
-  {
-    tasks
-  }
-))
+const store = createStore(rootReducer)
 
 ReactDOM.render(
   <React.StrictMode>
