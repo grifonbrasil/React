@@ -1,0 +1,8 @@
+.date-picker-custom {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.react-datepicker-wrapper {
+  display: block;
+}

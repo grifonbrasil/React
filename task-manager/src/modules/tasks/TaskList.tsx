@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Task } from './types';
 import CardTask from 'components/Card/CardTask';
+import { Task } from './types';
+import Button from 'components/Buttons/Button';
+import useAddTask from 'modules/hooks/useAddTask';
+import useRemoveTask from 'modules/hooks/useRemoveTask';
 
 const Container = styled.div`
   display: grid;
@@ -17,19 +20,24 @@ interface Props {
 }
 
 export default function TaskList({ list, onRemove, onAdd }: Props) {
+  const { askForRemove, dialog: removeDialog } = useRemoveTask({ onRemove });
+  const { askForAdd, dialog: addDialog } = useAddTask({ onAdd });
   return (
     <>
       <div className="flex align-items-center">
         <h1>Tarefas</h1>
+        <Button className="ml-10" onClick={askForAdd}>Nova</Button>
       </div>
       <Container>
         {list.length < 1 && (
           <p>Nenhuma foi cadastrada.</p>
         )}
         {list.map((task: Task) => (
-          <CardTask key={task.id} onRemoveClick={() => console.log('delete')} task={task} />
+          <CardTask key={task.id} onRemoveClick={askForRemove} task={task} />
         ))}
       </Container>
+      {removeDialog}
+      {addDialog}
     </>
   );
 }
