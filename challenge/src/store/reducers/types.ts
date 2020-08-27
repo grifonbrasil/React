@@ -1,15 +1,14 @@
-export interface ChatState {
-    messages: Message[]
+import { type } from "os"
+
+export interface TaskState {
+    title: string
+    description: string
+    startDate: object
+    endDate: object
 }
 
-
-
-export const ADD_JOB = 'ADD_JOB'
-
-interface AddJobAction {
-    type: typeof ADD_JOB
+export type TaskAction = {
+    type: string
+    payload: object
 }
-
-
-
-export type JobActionTypes = AddJobAction
+export const ADD_JOB: TaskAction = { type: 'ADD_JOB', payload: {} }

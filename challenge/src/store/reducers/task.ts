@@ -1,12 +1,19 @@
-const initialState = {
-    text: [],
+import { TaskState, TaskAction } from "./types";
+import moment from 'moment'
+import { start } from "repl";
+
+const initialState: TaskState = {
+    title: '',
+    description: '',
+    endDate: moment(),
+    startDate: moment()
 };
 
-const jobs = (state = initialState, action) => {
+const tasks = (state = initialState, action: TaskAction) => {
     switch (action.type) {
         default:
             return []
     }
 }
 
-export default jobs
+export default tasks 
