@@ -9,30 +9,41 @@ import {
   Flex,
 } from 'grape-ui-react';
 
+import { useForm, Controller } from 'react-hook-form'
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { addJob, Task } from '../store/reducers/types';
+
 import moment from 'moment';
 
 export interface AddTaskParams {
   formStyle: object
 }
+export interface AddTaskForm {
+  title: string,
+  startDate: string
+  endDate: string
+  description: string
+}
 
 export const AddTask = (props: AddTaskParams) => {
   const { formStyle } = props
+  const { register, errors, handleSubmit, control } = useForm<AddTaskForm>(
 
+  )
   const dispatch = useDispatch()
 
-  const handleSubmit = () => {
-    console.log('submit')
+  const onSubmit = (data: AddTaskForm) => {
+    console.log(data.title, data.startDate, data.endDate, data.description)
+    const { title, description, startDate, endDate } = data
     dispatch(
       addJob(
         {
-          id: 1,
-          title: 'teste',
-          description: 'teste',
-          endDate: moment(),
-          startDate: moment(),
+          id: Math.random() * 1000,
+          title: title,
+          description: description,
+          endDate: moment(endDate),
+          startDate: moment(startDate),
         } as Task
       )
     )
@@ -40,41 +51,64 @@ export const AddTask = (props: AddTaskParams) => {
 
   return (
     <>
-      <Form formStyle={formStyle}>
+      <Form formStyle={formStyle} onSubmit={handleSubmit(onSubmit)}>
         <TextField
           isRequired
           labelText="Titulo"
-          name={`exampleFullName${formStyle}`}
+          name="title"
+          inputRef={register({ minLength: 5 })}
+          validationError={errors.title && 'O comprimento minimo é 5 caracteres'}
         />
         <Flex justifyContent="space-evenly">
-          <DateField
-            formStyle={formStyle}
+          <Controller
+            as={<DateField />}
+            name="startDate"
+            control={control}
             labelText="Data inicial"
-            name={`exampleDob${formStyle}`}
+            formStyle={formStyle}
+            format="DD/MM/YYYY"
+            onChange={
+              (selected: any) => console.log(selected)
+            }
           />
-          <DateField
+          <Controller
+            as={<DateField />}
+            name="endDate"
+            control={control}
             formStyle={formStyle}
             labelText="Data final"
-            name={`exampleDob${formStyle}`}
+            format="DD/MM/YYYY"
+            onChange={
+              (selected: any) => console.log(selected)
+            }
+            validationError={errors.endDate && 'Data final é obrigatória'}
           />
         </Flex>
         <TextField
-          email
           labelText="Descricao da tarefa"
           minRows={2}
           multiline
-          name={`exampleBio${formStyle}`}
+          name="description"
+          // inputRef={register({ minLength: 10 })}
+          validationError={errors.description && 'Comprimento minimo da descriçao é 10 caracteres'}
         />
-      </Form>
-      <Flex justifyContent="flex-end">
-        <Button >Limpar</Button>
-        <Button variant="contained-success" onClick={handleSubmit}>
-          Enviar
+
+        <Flex justifyContent="flex-end">
+          <Button >Limpar</Button>
+          <Button variant="contained-success" type="submit">
+            Enviar
         </Button>
-      </Flex>
+        </Flex>
+      </Form>
+
     </>
   )
 }
+
+const endDateValidation = (date: string) => {
+  return true
+}
+
 AddTask.defaultProps = {
   formStyle: 'outlined',
 };
