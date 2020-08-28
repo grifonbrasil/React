@@ -1,6 +1,7 @@
 import { type } from "os"
 
 export interface TaskState {
+  id: number
   title: string
   description: string
   startDate: object
@@ -8,6 +9,7 @@ export interface TaskState {
 }
 
 export interface Task {
+  id: number
   title: string
   description: string
   startDate: object
@@ -18,4 +20,5 @@ export type TaskAction = {
   type: string
   payload: object
 }
-export const ADD_JOB: TaskAction = { type: 'ADD_JOB', payload: {} }
+
+export const addJob = (task: Task): TaskAction => ({ type: 'ADD_TASK', payload: task })

@@ -10,6 +10,9 @@ import {
 } from 'grape-ui-react';
 
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { addJob, Task } from '../store/reducers/types';
+import moment from 'moment';
 
 export interface AddTaskParams {
   formStyle: object
@@ -17,6 +20,24 @@ export interface AddTaskParams {
 
 export const AddTask = (props: AddTaskParams) => {
   const { formStyle } = props
+
+  const dispatch = useDispatch()
+
+  const handleSubmit = () => {
+    console.log('submit')
+    dispatch(
+      addJob(
+        {
+          id: 1,
+          title: 'teste',
+          description: 'teste',
+          endDate: moment(),
+          startDate: moment(),
+        } as Task
+      )
+    )
+  }
+
   return (
     <>
       <Form formStyle={formStyle}>
@@ -47,7 +68,9 @@ export const AddTask = (props: AddTaskParams) => {
       </Form>
       <Flex justifyContent="flex-end">
         <Button >Limpar</Button>
-        <Button variant="contained-success">Enviar</Button>
+        <Button variant="contained-success" onClick={handleSubmit}>
+          Enviar
+        </Button>
       </Flex>
     </>
   )

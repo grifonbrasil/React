@@ -1,18 +1,13 @@
 import { TaskState, TaskAction } from "./types";
-import moment from 'moment'
 
-const initialState: TaskState[] = [
-  {
-    title: '',
-    description: '',
-    endDate: moment(),
-    startDate: moment()
-  }
-];
-
+const initialState: TaskState[] = [];
 
 const tasks = (state: TaskState[] = initialState, action: TaskAction) => {
+  console.log(action)
   switch (action.type) {
+    case 'ADD_TASK':
+      console.log(action.payload)
+      return [...state, action.payload]
     default:
       return state
   }
