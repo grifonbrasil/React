@@ -35,7 +35,7 @@ export const AddTask = (props: AddTaskParams) => {
 
   const onSubmit = (data: AddTaskForm) => {
     const { title, description, startDate, endDate } = data
-    console.log(uuidv4())
+
     dispatch(
       addJob(
         {
@@ -47,7 +47,13 @@ export const AddTask = (props: AddTaskParams) => {
         } as Task
       )
     )
-    reset()
+
+    reset({
+      title: '',
+      endDate: '',
+      startDate: '',
+      description: ''
+    })
   }
 
   return (
@@ -69,7 +75,8 @@ export const AddTask = (props: AddTaskParams) => {
                 <DateField {...props}
                   labelText="Data Inicial"
                   validationError={errors.startDate && 'A data inicial é obrigatória'}
-                  onChange={(date: any) => props.onChange(date.formattedDay)} />
+                  onChange={(date: any) => props.onChange(date.formattedDay)}
+                />
               }
             />
           </Box>
@@ -85,7 +92,8 @@ export const AddTask = (props: AddTaskParams) => {
                 <DateField {...props}
                   labelText="Data Final"
                   validationError={errors.endDate && 'A data final tem de ser maior que a data inicial'}
-                  onChange={(date: any) => props.onChange(date.formattedDay)} />
+                  onChange={(date: any) => props.onChange(date.formattedDay)}
+                />
               }
             />
           </Box>
