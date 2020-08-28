@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paragraph } from 'grape-ui-react'
+import { Flex, Box } from 'grape-ui-react'
 import { useSelector } from 'react-redux';
 import { useTypedSelector } from '../store/reducers/reducer';
 import { AddTask } from './AddTask'
@@ -11,12 +11,16 @@ const App = () => {
   const taskList = useTypedSelector(state => state.tasks)
 
   return (
-    <Container>
-      <div>
+    <Flex
+      flexDirection={['column', 'row']}
+      justifyContent="space-evenly"
+    >
+      <Box px={[1, 2, 3, 4]} width={[1, 1 / 2]}>
+
         <AddTask />
-        <TaskList />
-      </div>
-    </Container>
+        <TaskList tasks={taskList} />
+      </Box>
+    </Flex>
   )
 }
 

@@ -1,3 +1,5 @@
 
 import React from 'react'
-export const AddTask = () => (<span>kkk</span>)
+import { Task } from '../store/reducers/types'
+
+export const TaskElement = (props: Task) => (<li>{props.title}</li>)

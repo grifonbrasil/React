@@ -7,6 +7,13 @@ export interface TaskState {
     endDate: object
 }
 
+export interface Task {
+    title: string
+    description: string
+    startDate: object
+    endDate: object
+}
+
 export type TaskAction = {
     type: string
     payload: object
