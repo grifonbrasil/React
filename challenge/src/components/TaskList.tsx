@@ -3,6 +3,8 @@ import React from 'react'
 import { Task } from '../store/reducers/types'
 import { TaskElement } from './TaskElement'
 
+import styled from 'styled-components'
+
 export interface TaskList {
   tasks: Task[]
 }
@@ -10,10 +12,16 @@ export interface TaskList {
 export const TaskList = (props: TaskList) => {
   const { tasks } = props
   return (
-    <ul>
+    <ListContainer>
       {tasks.map(task => (
         <TaskElement key={task.id} {...task} />
       ))}
-    </ul>
+    </ListContainer>
   )
-} 
+}
+
+
+const ListContainer = styled.li`
+  list-style: none;
+  padding: 0;
+`
