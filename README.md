@@ -1,63 +1,68 @@
-<div class="Box-body">
-        <article class="markdown-body entry-content p-5" itemprop="text"><p><strong>Bem Vindo!</strong></p>
-<h1></h1>
-<p>Este documento README tem como objetivo fornecer as informações necessárias para realização do exame.</p>
-<p><code>Objetivo:</code></p>
-<ul>
-<li>Solução de um sistema de cadastro utilizando REACT e seus recursos.</li>
-<li>Você deve realizar um fork deste repositório e ao finalizar submeter um pull request com a solução ou nos enviar um link do seu repositório.</li>
-<li>Nós avaliaremos o que foi feito e entraremos em contato para dar um parecer.</li>
-</ul>
-<p><code>O que será avaliado?</code></p>
-<ul>
-<li>A principal ideia do teste é medir sua capacidade lógica e conhecimento na linguagem e seus frameworks</li>
-<li>Qualidade do seu código</li>
-<li>Sua capacidade de deixar o projeto organizado</li>
-<li>Capacidade de tomar decisões</li>
-</ul>
-<p><code>Informações Importantes: </code></p>
-<ul>
-<li>Independente de onde chegou no teste, nos envie para analisarmos, ninguém precisa ser perfeito!</li>
-</ul>
-<p><code>Seu arquivo Readme.md deve conter: </code></p>
-<ul>
-<li>Informação de como executar o seu código.</li>
-<li>Instruções para executar os testes</li>
-</ul>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-</code></pre>
-<h1></h1>
-<p><code>Faça um sistema de cadastro e listagem de tarefas</code></p>
-<pre><code>
-<b>Deve conter:</b>
-<ul>
-<li>Título</li>
-<li>Descrição da tarefa</li>
-<li>Data inicial (data/hora)</li>
-<li>Data final</li>
-</ul>
-<b>Validações:</b>
-<ul>
-<li>Título maior que 5 caracteres</li>
-<li>Descrição maior que 10 caracteres</li>
-<li>Data Inicial (Livre para utilizar bibliotecas de picker se necessário)</li>
-<li>Data Final não pode ser menor que a data inicial</li>
-</ul>
-<b>Utilizar:</b>
-<ul>
-<li>Typescript</li>
-<li>Validação de formulário (Formik ou unform - de preferência a segunda opção)</li>
-<li>Estilização com styled-components</li>
-</ul>
-<b>Diferenciais:</b>
-<ul>
-<li>Componentização</li>
-<li>Clean code e utilização das melhores práticas de JS</li>
-<li>Criatividade de estilização de layout</li>
-</ul>
-</code></pre>
-<p><code>Lembre-se Avaliaremos o que for entregue, mesmo que incompleto</code></p>
-<p><strong>Boa sorte !!</strong></p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/8c5d535de1b7059a6abce560d44875a3f955d675/68747470733a2f2f616a736f696665722e66696c65732e776f726470726573732e636f6d2f323031342f30342f6b6565702d63616c6d2d616e642d646f6e2d742d666565642d7468652d74726f6c6c2d34382e706e67"><img src="https://camo.githubusercontent.com/8c5d535de1b7059a6abce560d44875a3f955d675/68747470733a2f2f616a736f696665722e66696c65732e776f726470726573732e636f6d2f323031342f30342f6b6565702d63616c6d2d616e642d646f6e2d742d666565642d7468652d74726f6c6c2d34382e706e67" alt="alt" data-canonical-src="https://ajsoifer.files.wordpress.com/2014/04/keep-calm-and-don-t-feed-the-troll-48.png" style="max-width:100%;"></a></p>
-</article>
-      </div>
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn start`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
