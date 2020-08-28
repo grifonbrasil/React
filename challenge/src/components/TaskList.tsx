@@ -12,7 +12,7 @@ export const TaskList = (props: TaskList) => {
   return (
     <ul>
       {tasks.map(task => (
-        <TaskElement id={task.id} title={task.title} description={task.description} endDate={task.endDate} startDate={task.startDate} />
+        <TaskElement key={task.id} {...task} />
       ))}
     </ul>
   )

@@ -1,4 +1,4 @@
-import { type } from "os"
+import { Moment } from "moment"
 
 export interface TaskState {
   id: number
@@ -9,11 +9,11 @@ export interface TaskState {
 }
 
 export interface Task {
-  id: number
+  id: string
   title: string
   description: string
-  startDate: object
-  endDate: object
+  startDate: Moment
+  endDate: Moment
 }
 
 export type TaskAction = {
