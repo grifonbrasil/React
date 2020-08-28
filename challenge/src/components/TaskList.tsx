@@ -3,8 +3,6 @@ import React from 'react'
 import { Task } from '../store/reducers/types'
 import { TaskElement } from './TaskElement'
 
-import { Box, Flex } from 'grape-ui-react'
-
 export interface TaskList {
   tasks: Task[]
 }
