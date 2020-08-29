@@ -1,6 +1,11 @@
 .date-picker-custom {
-  border: 1px solid black;
+  display: block;
+  border: #efefef;
   padding: 8px;
+  border-radius: 5px;
+  background-color: #efefef;
+  outline: none;
+  width: 95%;
 }
 
 .react-datepicker-wrapper {

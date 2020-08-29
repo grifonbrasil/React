@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from "react";
-import AddTaskForm from "../forms/AddTaskForm";
 import { Task } from 'modules/tasks/types';
+import useNotification from 'shared/hooks/useNotification';
+import AddTaskForm from 'modules/tasks/forms/AddTaskForm';
 
 interface Props {
   onAdd: (task: Task) => void 
@@ -10,9 +11,16 @@ interface Props {
 export default function useAddTask({ onAdd }: Props) {
   // todo
   const [dialog, setDialog] = useState<any>();
+  const notification = useNotification();
+
+  const onConfirm = (task: Task) => {
+    onAdd(task);
+    notification.success('Tarefa adicionada com sucesso.');
+    onClose();
+  }
   const askForAdd = () => {
     setDialog(
-      <AddTaskForm onAdd={onAdd} onClose={onClose} />
+      <AddTaskForm onAdd={onConfirm} onClose={onClose} />
     );
   };
 

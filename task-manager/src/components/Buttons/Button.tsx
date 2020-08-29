@@ -1,25 +1,32 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  color: #aaaaaa;
+  font-weight: 600;
+  color: #FFFFFF;
   cursor: pointer;
-  font-size: 28px;
-  font-weight: bold;
-
-  &:hover,
-  &:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  font-size: 14px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
 
   &.success {
-    background-color: green;
+    background-color: #1BB76C;
+    &:hover,
+    &:focus {
+      background-color: #1bb76ce0;
+      outline: none;
+    }
   }
 
-  &.red {
-    background-color: red;
+  &.error {
+    background-color: #FF315A;
+    &:hover,
+    &:focus {
+      background-color: #ff315ad9;
+      outline: none;
+    }
   }
+
 `;
 
 export default Button;

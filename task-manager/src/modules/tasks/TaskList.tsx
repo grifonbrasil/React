@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import CardTask from 'components/Card/CardTask';
 import { Task } from './types';
 import Button from 'components/Buttons/Button';
-import useAddTask from 'modules/hooks/useAddTask';
-import useRemoveTask from 'modules/hooks/useRemoveTask';
+import useAddTask from 'modules/tasks/hooks/useAddTask';
+import useRemoveTask from 'modules/tasks/hooks/useRemoveTask';
 
 const Container = styled.div`
   display: grid;
@@ -25,8 +25,8 @@ export default function TaskList({ list, onRemove, onAdd }: Props) {
   return (
     <>
       <div className="flex align-items-center">
-        <h1>Tarefas</h1>
-        <Button className="ml-10" onClick={askForAdd}>Nova</Button>
+        <h1 className="mr-10">Tarefas</h1>
+        <Button className="ml-10 success" onClick={askForAdd}>Nova</Button>
       </div>
       <Container>
         {list.length < 1 && (

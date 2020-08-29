@@ -4,6 +4,7 @@ import { useField } from '@unform/core';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePicker.css';
 import ptBR from 'date-fns/locale/pt-BR';
+import ErrorMessage from './ErrorMessage';
 registerLocale('pt-BR', ptBR)
 
 interface Props extends Omit<ReactDatePickerProps, 'onChange'> {
@@ -11,10 +12,10 @@ interface Props extends Omit<ReactDatePickerProps, 'onChange'> {
   placeholder: string;
 }
 
-const DatePicker: React.FC<Props> = ({ name, placeholder, ...rest }) => {
+const DatePicker: React.FC<Props> = ({ name, placeholder, className, ...rest }) => {
   const datepickerRef = useRef(null);
-  const { fieldName, registerField, defaultValue } = useField(name);
-  const [date, setDate] = useState(defaultValue || null);
+  const { fieldName, registerField, defaultValue, error } = useField(name);
+  const [date, setDate] = useState(defaultValue || undefined);
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -28,17 +29,20 @@ const DatePicker: React.FC<Props> = ({ name, placeholder, ...rest }) => {
   
 
   return (
-    <ReactDatePicker
-      dateFormat="dd/MM/yyyy - HH:mm"
-      locale={ptBR}
-      ref={datepickerRef}
-      selected={date}
-      onChange={setDate}
-      {...rest}
-      className="date-picker-custom mt-10"
-      placeholderText={placeholder}
-      showTimeSelect
-    />
+    <>
+      <ReactDatePicker
+        dateFormat="dd/MM/yyyy - HH:mm"
+        locale={ptBR}
+        ref={datepickerRef}
+        selected={date}
+        onChange={setDate}
+        {...rest}
+        className={`date-picker-custom ${className || ''}`}
+        placeholderText={placeholder}
+        showTimeSelect
+      />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </>
   );
 };
 export default DatePicker;

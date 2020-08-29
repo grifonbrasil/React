@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CloseButton from 'components/Buttons/CloseButton';
+import Button from 'components/Buttons/Button';
 
 const Container = styled.div`
   display: block;
@@ -21,14 +22,16 @@ const Content = styled.div`
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 50%;
+  width: 250px;
+  min-width: 25%;
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  h1 {
+  
+  .title {
     font-size: 24px;
   }
 `;
@@ -37,10 +40,6 @@ const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
-
-const Button = styled.button`
-  background-color: #f44336;
 `;
 
 interface Props {
@@ -52,20 +51,19 @@ interface Props {
   children: any
 }
 
-export default function Modal({ title, onClose, onConfirm, children,  }: Props) {
+export default function Confirm({ title, onClose, onConfirm, children }: Props) {
   return (
     <Container>
       <Content>
         <Header>
-          <h1>{title}</h1>
+          <h1 className="title">{title}</h1>
           <CloseButton onClick={onClose}>&times;</CloseButton>
         </Header>
-        <div>
-          {children}
-        </div>
+        {children}
         {onConfirm && (
           <Footer>
-            <Button onClick={onConfirm}>Confirmar</Button>
+            <Button className="success" onClick={onClose}>Cancelar</Button>
+            <Button className="error ml-10" onClick={onConfirm}>Confirmar</Button>
           </Footer>
         )}
       </Content>

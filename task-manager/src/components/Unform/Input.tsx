@@ -1,15 +1,26 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 import styled from 'styled-components';
+import ErrorMessage from './ErrorMessage';
 
 const StyledInput = styled.input`
   display: block;
-  border: 1px solid black;
+  border: #efefef;
   padding: 8px;
-  `;
+  border-radius: 5px;
+  background-color: #efefef;
+  outline: none;
+  width: 95%;
+`;
 
-// todo
-export default function Input({ name, ...rest }: any) {
+interface Props {
+  name: string;
+  placeholder: string;
+};
+
+type InputProps = JSX.IntrinsicElements['input'] & Props;
+
+export default function Input({ name, ...rest }: React.FC<InputProps>) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
   useEffect(() => {
@@ -19,5 +30,10 @@ export default function Input({ name, ...rest }: any) {
       path: 'value',
     });
   }, [fieldName, registerField]);
-  return <StyledInput ref={inputRef} defaultValue={defaultValue} {...rest} />;
+  return (
+    <>
+      <StyledInput ref={inputRef} defaultValue={defaultValue} {...rest} />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </>
+  );
 }
