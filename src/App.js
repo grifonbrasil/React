@@ -1,12 +1,21 @@
 import React from 'react';
-import {Title} from './styles';
+import { Title, Page, Body } from './styles';
+import ServiceForm from './components/ServiceForm';
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div>
-      <Title>Grifon Test</Title>
-    </div>
-  );
+
+export default class ServiceApp extends React.Component {
+
+  render() {
+    return (
+      <>
+        <Body>
+          <div class="container z-depth-3" >
+            <Title font-size={20} > &nbsp;Cadastro de Tarefas </Title>
+            <ServiceForm />
+          </div>
+        </Body>
+      </>
+    );
+  }
 }
-
-export default App;
