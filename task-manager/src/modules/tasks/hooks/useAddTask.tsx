@@ -9,8 +9,7 @@ interface Props {
 }
 
 export default function useAddTask({ onAdd }: Props) {
-  // todo
-  const [dialog, setDialog] = useState<any>();
+  const [dialog, setDialog] = useState<React.ReactNode>();
   const notification = useNotification();
 
   const onConfirm = (task: Task) => {

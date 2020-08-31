@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 const useNotification = () => {
-  const success = (message, settings) => {
+  const success = (message: string) => {
     toast(message);
   };
 

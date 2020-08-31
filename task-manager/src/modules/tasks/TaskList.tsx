@@ -10,7 +10,13 @@ const Container = styled.div`
   display: grid;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 4fr));
+  /* grid-template-columns: auto auto auto; */
+
+  /* @media (max-width: 600px) {
+    grid-column-gap: 100px;
+    grid-row-gap: 100px;
+  } */
 `;
 
 interface Props {

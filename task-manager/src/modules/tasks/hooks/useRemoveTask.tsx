@@ -14,8 +14,7 @@ const Description = styled.p`
 `;
 
 export default function useRemoveTask({ onRemove }: Props) {
-  // todo
-  const [dialog, setDialog] = useState<any>();
+  const [dialog, setDialog] = useState<React.ReactNode>();
   const notification = useNotification();
   const askForRemove = (task: Task) => {
     const onConfirm = () => {

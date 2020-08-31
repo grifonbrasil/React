@@ -7,9 +7,12 @@ const examples = {
   'dce123': { id: 'dce123', title: 'Comprar presente', description: 'Procurar um livro de finanças que ela gosta', initDate: new Date(), endDate: new Date() },
 };
 
+interface Tasks {
+  [key: number]: Task
+}
+
 function App() {
-  // todo
-  const [list, setList] = useState<any>(examples);
+  const [list, setList] = useState<Tasks>(examples);
 
   const onRemove = (task: Task) => {
     const idToRemove = task.id;
@@ -18,8 +21,7 @@ function App() {
   }
 
   const onAdd = (task: Task) => {
-    // todo
-    setList((prev: any) => ({ ...prev, [task.id]: task }));
+    setList((prev: Tasks) => ({ ...prev, [task.id]: task }));
   }
 
   return (

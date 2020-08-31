@@ -44,9 +44,7 @@ const Footer = styled.div`
 
 interface Props {
   title: string;
-  // todo
   onClose: () => void;
-  // todo
   onConfirm?: () => void;
   children: any
 }
