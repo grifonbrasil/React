@@ -1,3 +1,16 @@
+Do the commands
+npm install
+yarn
+yarn start
+
+In Stylization I used
+Styled Components
+https://styled-components.com/
+
+Materialize
+https://materializecss.com/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

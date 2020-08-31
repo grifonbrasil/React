@@ -31,7 +31,7 @@ export default class ServiceForm extends React.Component {
             timeOut: e.target.value
         });
     }
-    onDate(e) {
+    /* onDate(e) {
         const date1 = this.state.timeIn;
         const date2 = this.state.timeOut;
 
@@ -48,7 +48,7 @@ export default class ServiceForm extends React.Component {
             });
             alert('Tarefa criada com sucesso!')
         };
-    }
+    } */
     onClick(e) {
     this.setState({
 
